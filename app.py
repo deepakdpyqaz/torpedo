@@ -16,7 +16,16 @@ def make_prediction():
     for value in selections.values():
         search_terms.extend(value)
     data = model.predict(search_terms, indices=False)
-    st.dataframe(data)
+    st.dataframe(
+        data[
+            [
+                "Category",
+                "Category in detail",
+                "Pureesha pareeksha",
+                "Search Term for Feature of pureesha",
+            ]
+        ]
+    )
 
 
 if st.button("Predict"):
